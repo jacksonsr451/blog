@@ -1,4 +1,19 @@
-{% extends 'template.html' %} {% block 'title' %}Adcionar Editor{% endblock %} {% block 'content' %}
+{% extends 'admin/admin_template.html' %}
+
+<!-- Init block title -->
+{% block 'title' %}Adcionar Editor{% endblock %}
+
+<!-- Init block Header -->
+{% block 'header' %}{% include 'admin/admin_header.html' %}{% endblock %}
+
+<!-- Init block aside -->
+{% block 'aside' %} {% include 'admin/admin_aside.html' %} {% endblock %}
+
+<!-- Init block footer  -->
+{% block 'footer' %}{% include 'admin/admin_footer.html' %}{% endblock %}
+
+<!-- Init block content -->
+{% block 'content' %}
 <div class="container">
     <div class="form-group">
         <form action="{% url 'insert_editor' %}" method="POST">
