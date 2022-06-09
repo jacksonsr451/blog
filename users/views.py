@@ -6,6 +6,11 @@ from .models import Users
 def home_editor(request):
     return render(request, 'home_editor.html')
 
+@has_role_decorator('admin')
+def list_editor(request):
+    users = Users.objects.all()
+    return render(request, 'list_editor.html', {'users': users})
+
 @has_role_decorator('add_editor')
 def add_editor(request):
     return render(request, 'add_editor.html')

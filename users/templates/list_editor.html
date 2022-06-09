@@ -1,0 +1,41 @@
+{% extends 'admin/admin_template.html' %}
+
+<!-- Init block title -->
+{% block 'title' %}List Editor{% endblock %}
+
+<!-- Init block Header -->
+{% block 'header' %}{% include 'admin/admin_header.html' %}{% endblock %}
+
+<!-- Init block aside -->
+{% block 'aside' %} {% include 'admin/admin_aside.html' %} {% endblock %}
+
+<!-- Init block footer  -->
+{% block 'footer' %}{% include 'admin/admin_footer.html' %}{% endblock %}
+
+<!-- Init block content -->
+{% block 'content' %}
+<div class="container">
+    <div class="row">
+        {% include 'content_header.html' %}
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nome</td>
+                    <td>Sobrenome</td>
+                    <td>Email</td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="#" method="post">
+            <input type="button" class="btn btn-danger" value="DELETE">
+        </form>
+    </div>
+</div>
+{% endblock %}
