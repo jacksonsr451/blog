@@ -15,31 +15,34 @@
 <!-- Init block content -->
 {% block 'content' %}
 <div class="container">
-    <div class="form-group">
-        <form action="{% url 'insert_editor' %}" method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="name">Nome:</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
-            </div>
-            <div class="form-group">
-                <label for="last_name">Sobrenome:</label>
-                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Sobrenome">
-            </div>
-            <div class="form-group">
-                <label for="username">Nome de usuário:</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Nome de usuário">
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label for="password">Senha:</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
-            </div>
-            <button type="submit" class="btn btn-primary">Adicionar</button>
-        </form>
+    <div class="row">
+        {% include 'content_header.html' %}
+        <div class="form-group">
+            <form action="{% url 'insert_editor' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Sobrenome:</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Sobrenome">
+                </div>
+                <div class="form-group">
+                    <label for="username">Nome de usuário:</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Nome de usuário">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
+                </div>
+                <button type="submit" class="btn btn-primary mt-4">Adicionar</button>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

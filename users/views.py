@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from rolepermissions.decorators import has_role_decorator
 from .models import Users
 
+@has_role_decorator('admin')
+def home_editor(request):
+    return render(request, 'home_editor.html')
 
 @has_role_decorator('add_editor')
 def add_editor(request):
