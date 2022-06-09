@@ -7,5 +7,5 @@ from . import views
 urlpatterns = [
     path('admin_area/', admin.site.urls),
     path('' , views.home, name='home'),
-    path('admin/users/', include('users.urls')),
+    path('admin/', include('admin_area.urls')),
 ]
