@@ -19,28 +19,27 @@
         {% include 'content_header.html' %}
         <table class="table table-success table-striped">
             <thead>
-                <tr>
+                <tr align="center">
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Sobrenome</th>
                     <th>Email</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Nome</td>
-                    <td>Sobrenome</td>
-                    <td>Email</td>
-                </tr>
+            <tbody>{% for user in users %}
+                <form id="change_editor_form_{{ user.id }}" action="{% url 'change_editor' %}" method="post">
+                    {% csrf_token %}
+                    <tr align="center" onclick="document.getElementById('change_editor_form_{{ user.id }}').submit();" style="cursor: pointer;">
+                        <input type="hidden" name="id" value='{{ user.id }}'>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                </form>
+                {% endfor %}
             </tbody>
         </table>
-        <div class="d-flex flex-row mt-3">
-            <form action="#" method="post">
-                <input type="button" class="btn btn-danger" value="DELETE">
-            </form>
-            <form action="#" method="post" class="ms-3">
-                <input type="button" class="btn btn-warning" value="ATUALIZAR">
-            </form>
-        </div>
     </div>
 </div>
 {% endblock %}

@@ -11,6 +11,12 @@ def list_editor(request):
     users = Users.objects.all()
     return render(request, 'list_editor.html', {'users': users})
 
+@has_role_decorator('admin')
+def change_editor(request):
+    print(request.POST['id'])
+    user = Users.objects.get(pk=request.POST['id'])
+    return render(request, 'change_editor.html', {'user': user})
+
 @has_role_decorator('add_editor')
 def add_editor(request):
     return render(request, 'add_editor.html')
