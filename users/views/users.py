@@ -63,6 +63,6 @@ def insert_user(request):
 
     user = Users.objects.create_user(
         first_name=first_name, last_name=last_name, username=username, email=email, 
-        password=password, occupation='user')
+        password=password)
     # TODO: add success message
     return redirect('add_user')

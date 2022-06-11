@@ -1,7 +1,7 @@
 from rolepermissions.roles import AbstractUserRole
 
 
-class Usuario(AbstractUserRole):
+class User(AbstractUserRole):
     available_permissions = {
         'view_blog': True,
         'view_comments': True,
@@ -17,7 +17,7 @@ class Editor(AbstractUserRole):
         'add_comments': True,
     }
 
-class Administrador(AbstractUserRole):
+class Admin(AbstractUserRole):
     available_permissions = {
         'view_blog': True,
         'edit_blog': True,
@@ -43,21 +43,21 @@ class Administrador(AbstractUserRole):
         'add_comments': True,
     }
     
-class Invitado(AbstractUserRole):
+class Guest(AbstractUserRole):
     available_permissions = {
         'view_blog': True,
         'view_comments': False,
         'add_comments': False,
     }
     
-class Banido(AbstractUserRole):
+class Banned(AbstractUserRole):
     available_permissions = {
         'view_blog': False,
         'view_comments': False,
         'add_comments': False,
     }
     
-class Eliminado(AbstractUserRole):
+class Deleted(AbstractUserRole):
     available_permissions = {
         'view_blog': True,
         'view_comments': False,

@@ -14,9 +14,9 @@ def assign_user_role(sender, instance, created, **kwargs):
             assign_role(instance, 'admin')
         elif instance.occupation == 'user':
             assign_role(instance, 'user')
-        elif instance.occupation == 'guest':
-            assign_role(instance, 'guest')
-        elif instance.occupation == 'banned':
-            assign_role(instance, 'banned')
-        elif instance.occupation == 'deleted':
-            assign_role(instance, 'deleted')
+        # elif instance.occupation == 'guest':
+        #     assign_role(instance, 'guest')
+        # elif instance.occupation == 'banned':
+        #     assign_role(instance, 'banned')
+        # elif instance.occupation == 'deleted':
+        #     assign_role(instance, 'deleted')
