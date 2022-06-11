@@ -1,0 +1,23 @@
+{% extends 'admin/admin_template.html' %}
+
+<!-- Init block title -->
+{% block 'title' %}List User{% endblock %}
+
+<!-- Init block Header -->
+{% block 'header' %}{% include 'admin/admin_header.html' %}{% endblock %}
+
+<!-- Init block aside -->
+{% block 'aside' %} {% include 'admin/admin_aside.html' %} {% endblock %}
+
+<!-- Init block footer  -->
+{% block 'footer' %}{% include 'admin/admin_footer.html' %}{% endblock %}
+
+<!-- Init block content -->
+{% block 'content' %}
+<div class="container">
+    <div class="row">
+        {% include 'editors/header_content_user.html' %}
+        <!-- TODO: include introduction by editos in template -->
+    </div>
+</div>
+{% endblock %}

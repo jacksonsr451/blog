@@ -1,5 +1,5 @@
 function delete_editor(route) {
-    // TODO: add a function to request permission to delete user in template
+    // TODO: add a function to request permission to delete editor in template
     let form = document.getElementById('change_editor_form');
     form.action = route
     form.submit();

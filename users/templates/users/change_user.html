@@ -1,0 +1,59 @@
+{% extends 'admin/admin_template.html' %}
+
+<!-- Init block head -->
+{% block 'head' %}{% load static %} {% endblock %}
+
+<!-- Init block title -->
+{% block 'title' %}Alterar User{% endblock %}
+
+<!-- Init block Header -->
+{% block 'header' %}{% include 'admin/admin_header.html' %}{% endblock %}
+
+<!-- Init block aside -->
+{% block 'aside' %} {% include 'admin/admin_aside.html' %} {% endblock %}
+
+<!-- Init block footer  -->
+{% block 'footer' %}{% include 'admin/admin_footer.html' %}{% endblock %}
+
+<!-- Init block content -->
+{% block 'content' %}
+<div class="container">
+    <div class="row">
+        {% include 'editors/header_content_user.html' %}
+        <div class="form-group">
+            <form id="change_user_form" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="id" value='{{ user.id }}'>
+                <div class="form-group">
+                    <label for="first_name">Nome:</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nome" value="{{ user.first_name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Sobrenome:</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Sobrenome" value="{{ user.last_name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Nome de usuário:</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Nome de usuário" value="{{ user.username }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ user.email }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Senha" value="{{ user.password }}" required>
+                </div>
+            </form>
+            <div class="d-flex flex-row mt-3">
+                <input type="button" class="btn btn-danger" onclick="delete_user(`{% url 'delete_user' %}`)" value="DELETE">
+                <input type="button" class="btn btn-warning ms-3" onclick="update_user(`{% url 'update_user' %}`)" value="ATUALIZAR">
+                <input type="button" class="btn btn-secondary ms-3" onclick="invite_user(`{% url 'invite_user' %}`)" value="INVITAR">
+                <input type="button" class="btn btn-dark ms-3" onclick="ban_editor(`{% url 'ban_user' %}`)" value="BANIR">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block 'scripts' %}
+<script src="{% static 'js/change_users.js' %}" defer></script>
+{% endblock %}
