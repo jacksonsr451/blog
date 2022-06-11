@@ -36,12 +36,16 @@ def delete_editor(request):
 
 @has_role_decorator('admin')
 def invite_editor(request):
-    # TODO: implement method by inviting editor to the system
+    user = Users.objects.get(pk=request.POST['id'])
+    user.occupation = 'guest'
+    user.save()
     return redirect('list_editor')
 
 @has_role_decorator('admin')
 def ban_editor(request):
-    # TODO: create a new user with the same email as the banned editor
+    user = Users.objects.get(pk=request.POST['id'])
+    user.occupation = 'banned'
+    user.save()
     return redirect('list_editor')
 
 @has_role_decorator('add_editor')
