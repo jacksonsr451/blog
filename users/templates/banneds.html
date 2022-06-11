@@ -1,0 +1,44 @@
+{% extends 'admin/admin_template.html' %}
+
+<!-- Init block title -->
+{% block 'title' %}Banneds{% endblock %}
+
+<!-- Init block Header -->
+{% block 'header' %}{% include 'admin/admin_header.html' %}{% endblock %}
+
+<!-- Init block aside -->
+{% block 'aside' %} {% include 'admin/admin_aside.html' %} {% endblock %}
+
+<!-- Init block footer  -->
+{% block 'footer' %}{% include 'admin/admin_footer.html' %}{% endblock %}
+
+<!-- Init block content -->
+{% block 'content' %}
+<div class="container">
+    <div class="row">
+        <table class="table table-success table-striped">
+            <thead>
+                <tr align="center">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>{% for user in users %}
+                <form id="banned_user_form_{{ user.id }}" action="{% url 'banned_user' %}" method="post">
+                    {% csrf_token %}
+                    <tr align="center" onclick="document.getElementById('banned_user_form_{{ user.id }}').submit();" style="cursor: pointer;">
+                        <input type="hidden" name="id" value='{{ user.id }}'>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                </form>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
