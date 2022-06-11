@@ -22,23 +22,23 @@
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="name">Nome:</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome" required>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Sobrenome:</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Sobrenome">
+                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Sobrenome" required>
                 </div>
                 <div class="form-group">
                     <label for="username">Nome de usuário:</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Nome de usuário">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Nome de usuário" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha:</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Senha" required>
                 </div>
                 <button type="submit" class="btn btn-primary mt-4">Adicionar</button>
             </form>

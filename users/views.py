@@ -13,9 +13,27 @@ def list_editor(request):
 
 @has_role_decorator('admin')
 def change_editor(request):
-    print(request.POST['id'])
     user = Users.objects.get(pk=request.POST['id'])
     return render(request, 'change_editor.html', {'user': user})
+
+@has_role_decorator('admin')
+def update_editor(request):
+    print(request.POST)    
+    return redirect('list_editor')
+
+@has_role_decorator('admin')
+def delete_editor(request):
+    user = Users.objects.get(pk=request.POST['id'])
+    user.delete()
+    return redirect('list_editor')
+
+@has_role_decorator('admin')
+def invite_editor(request):
+    return render(request, 'invite_user.html')
+
+@has_role_decorator('admin')
+def ban_editor(request):
+    pass    
 
 @has_role_decorator('add_editor')
 def add_editor(request):

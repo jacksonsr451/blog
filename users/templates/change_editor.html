@@ -18,35 +18,61 @@
     <div class="row">
         {% include 'content_header.html' %}
         <div class="form-group">
-            <form action="{% url 'insert_editor' %}" method="POST">
+            <form id="change_editor_form" method="POST">
                 {% csrf_token %}
+                <input type="hidden" name="id" value='{{ user.id }}'>
                 <div class="form-group">
-                    <label for="name">Nome:</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome" value="{{ user.first_name }}">
+                    <label for="first_name">Nome:</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nome" value="{{ user.first_name }}" required>
                 </div>
                 <div class="form-group">
                     <label for="last_name">Sobrenome:</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Sobrenome" value="{{ user.last_name }}">
+                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Sobrenome" value="{{ user.last_name }}" required>
                 </div>
                 <div class="form-group">
                     <label for="username">Nome de usuário:</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Nome de usuário" value="{{ user.username }}">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Nome de usuário" value="{{ user.username }}" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ user.email }}">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ user.email }}" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha:</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Senha" value="{{ user.password }}">
-                </div>
-                <div class="d-flex flex-row mt-3">
-                    <input type="button" class="btn btn-danger" value="DELETE">
-                    <input type="button" class="btn btn-warning ms-3" value="ATUALIZAR">
-                    <input type="button" class="btn btn-secondary ms-3" value="INVITAR">
-                    <input type="button" class="btn btn-dark ms-3" value="BANIR">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Senha" value="{{ user.password }}" required>
                 </div>
             </form>
+            <div class="d-flex flex-row mt-3">
+                <input type="button" class="btn btn-danger" onclick="delete_editor()" value="DELETE">
+                <input type="button" class="btn btn-warning ms-3" onclick="update_editor()" value="ATUALIZAR">
+                <input type="button" class="btn btn-secondary ms-3" onclick="invite_editor()" value="INVITAR">
+                <input type="button" class="btn btn-dark ms-3" onclick="ban_editor()" value="BANIR">
+            </div>
+            <script>
+                function delete_editor() {
+                    let form = document.getElementById('change_editor_form');
+                    form.action = "{% url 'delete_editor' %}"
+                    form.submit();
+                }
+
+                function update_editor() {
+                    let form = document.getElementById('change_editor_form');
+                    form.action = "{% url 'update_editor' %}"
+                    form.submit();
+                }
+
+                function invite_editor() {
+                    let form = document.getElementById('change_editor_form');
+                    form.action = "{% url 'invite_editor' %}"
+                    form.submit();
+                }
+
+                function ban_editor() {
+                    let form = document.getElementById('change_editor_form');
+                    form.action = "{% url 'ban_editor' %}"
+                    form.submit();
+                }
+            </script>
         </div>
     </div>
 </div>
