@@ -18,7 +18,6 @@ def change_editor(request):
 
 @has_role_decorator('admin')
 def update_editor(request):
-    print(request.POST)    
     return redirect('list_editor')
 
 @has_role_decorator('admin')
@@ -29,11 +28,13 @@ def delete_editor(request):
 
 @has_role_decorator('admin')
 def invite_editor(request):
-    return render(request, 'invite_user.html')
+    # TODO: implement method by inviting user to the system
+    return redirect('list_editor')
 
 @has_role_decorator('admin')
 def ban_editor(request):
-    pass    
+    # TODO: create a new user with the same email as the banned user
+    return redirect('list_editor')
 
 @has_role_decorator('add_editor')
 def add_editor(request):

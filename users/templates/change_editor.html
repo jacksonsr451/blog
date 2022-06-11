@@ -50,6 +50,7 @@
             </div>
             <script>
                 function delete_editor() {
+                    // TODO: add a function to request permission to delete user in template
                     let form = document.getElementById('change_editor_form');
                     form.action = "{% url 'delete_editor' %}"
                     form.submit();
