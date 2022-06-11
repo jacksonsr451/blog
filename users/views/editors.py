@@ -8,7 +8,7 @@ def home_editor(request):
 
 @has_role_decorator('admin')
 def list_editor(request):
-    users = Users.objects.all()
+    users = Users.objects.filter(occupation="editor")
     return render(request, 'editors/list_editor.html', {'users': users})
 
 @has_role_decorator('admin')

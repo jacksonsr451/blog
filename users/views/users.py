@@ -8,7 +8,7 @@ def home_user(request):
 
 @has_role_decorator('admin')
 def list_user(request):
-    users = Users.objects.all()
+    users = Users.objects.filter(occupation="user")
     return render(request, 'users/list_user.html', {'users': users})
 
 @has_role_decorator('admin')
