@@ -6,6 +6,7 @@ from rolepermissions.roles import assign_role
 
 @receiver(post_save, sender=Users)
 def assign_user_role(sender, instance, created, **kwargs):
+    # TODO: Use the created flag to check if the user is new or not
     if created:
         if instance.occupation == 'editor':
             assign_role(instance, 'editor')
