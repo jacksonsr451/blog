@@ -4,17 +4,17 @@ from ..models import Users
 
 @has_role_decorator('admin')
 def home_user(request):
-    return render(request, 'editors/home_user.html')
+    return render(request, 'users/home_user.html')
 
 @has_role_decorator('admin')
 def list_user(request):
     users = Users.objects.all()
-    return render(request, 'editors/list_user.html', {'users': users})
+    return render(request, 'users/list_user.html', {'users': users})
 
 @has_role_decorator('admin')
 def change_user(request):
     user = Users.objects.get(pk=request.POST['id'])
-    return render(request, 'editors/change_user.html', {'user': user})
+    return render(request, 'users/change_user.html', {'user': user})
 
 @has_role_decorator('update_user')
 def update_user(request):
@@ -46,7 +46,7 @@ def ban_user(request):
 
 @has_role_decorator('add_user')
 def add_user(request):
-    return render(request, 'editors/add_user.html')
+    return render(request, 'users/add_user.html')
 
 @has_role_decorator('add_user')
 def insert_user(request):
