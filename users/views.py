@@ -18,6 +18,14 @@ def change_editor(request):
 
 @has_role_decorator('admin')
 def update_editor(request):
+    user = Users.objects.get(pk=request.POST['id'])
+    user.first_name = request.POST['first_name']
+    user.last_name = request.POST['last_name']
+    user.username = request.POST['username']
+    user.email = request.POST['email']
+    if not user.check_password(request.POST['password']):
+        user.set_password(request.POST['password'])
+    user.save()
     return redirect('list_editor')
 
 @has_role_decorator('admin')
