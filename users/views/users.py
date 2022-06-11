@@ -37,11 +37,17 @@ def delete_user(request):
 @has_role_decorator('invite_user')
 def invite_user(request):
     # TODO: implement method by inviting user to the system
+    user = Users.objects.get(pk=request.POST['id'])
+    user.occupation = 'guest'
+    user.save()
     return redirect('list_user')
 
 @has_role_decorator('ban_user')
 def ban_user(request):
     # TODO: create a new user with the same email as the banned user
+    user = Users.objects.get(pk=request.POST['id'])
+    user.occupation = 'banned'
+    user.save()
     return redirect('list_user')
 
 @has_role_decorator('add_user')

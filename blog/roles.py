@@ -56,10 +56,3 @@ class Banned(AbstractUserRole):
         'view_comments': False,
         'add_comments': False,
     }
-    
-class Deleted(AbstractUserRole):
-    available_permissions = {
-        'view_blog': True,
-        'view_comments': False,
-        'add_comments': False,
-    }

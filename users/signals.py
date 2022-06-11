@@ -1,7 +1,7 @@
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 from .models import Users
-from rolepermissions.roles import assign_role
+from rolepermissions.roles import assign_role, clear_roles
 
 
 @receiver(post_save, sender=Users)
@@ -14,9 +14,19 @@ def assign_user_role(sender, instance, created, **kwargs):
             assign_role(instance, 'admin')
         elif instance.occupation == 'user':
             assign_role(instance, 'user')
-        # elif instance.occupation == 'guest':
-        #     assign_role(instance, 'guest')
-        # elif instance.occupation == 'banned':
-        #     assign_role(instance, 'banned')
-        # elif instance.occupation == 'deleted':
-        #     assign_role(instance, 'deleted')
+    elif not created:
+        if instance.occupation == 'guest':
+            clear_roles(instance)
+            assign_role(instance, 'guest')
+        elif instance.occupation == 'banned':
+            clear_roles(instance)
+            assign_role(instance, 'banned')
+        elif instance.occupation == 'editor':
+            clear_roles(instance)
+            assign_role(instance, 'editor')
+        elif instance.occupation == 'admin':
+            clear_roles(instance)
+            assign_role(instance, 'admin')
+        elif instance.occupation == 'user':
+            clear_roles(instance)
+            assign_role(instance, 'user')

@@ -9,6 +9,5 @@ class Users(AbstractUser):
         ('editor', 'Editor'),
         ('guest', 'Invitado'),
         ('banned', 'Banido'),
-        ('deleted', 'Eliminado'),
     )
     occupation = models.CharField(max_length=100, choices=choice_occupation, default='user')
