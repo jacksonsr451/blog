@@ -1,5 +1,8 @@
 {% extends 'admin/admin_template.html' %}
 
+<!-- Init block head -->
+{% block 'head' %}{% load static %} {% endblock %}
+
 <!-- Init block title -->
 {% block 'title' %}Alterar Editor{% endblock %}
 
@@ -43,38 +46,14 @@
                 </div>
             </form>
             <div class="d-flex flex-row mt-3">
-                <input type="button" class="btn btn-danger" onclick="delete_editor()" value="DELETE">
-                <input type="button" class="btn btn-warning ms-3" onclick="update_editor()" value="ATUALIZAR">
-                <input type="button" class="btn btn-secondary ms-3" onclick="invite_editor()" value="INVITAR">
-                <input type="button" class="btn btn-dark ms-3" onclick="ban_editor()" value="BANIR">
+                <input type="button" class="btn btn-danger" onclick="delete_editor(`{% url 'delete_editor' %}`)" value="DELETE">
+                <input type="button" class="btn btn-warning ms-3" onclick="update_editor(`{% url 'update_editor' %}`)" value="ATUALIZAR">
+                <input type="button" class="btn btn-secondary ms-3" onclick="invite_editor(`{% url 'invite_editor' %}`)" value="INVITAR">
+                <input type="button" class="btn btn-dark ms-3" onclick="ban_editor(`{% url 'ban_editor' %}`)" value="BANIR">
             </div>
-            <script>
-                function delete_editor() {
-                    // TODO: add a function to request permission to delete user in template
-                    let form = document.getElementById('change_editor_form');
-                    form.action = "{% url 'delete_editor' %}"
-                    form.submit();
-                }
-
-                function update_editor() {
-                    let form = document.getElementById('change_editor_form');
-                    form.action = "{% url 'update_editor' %}"
-                    form.submit();
-                }
-
-                function invite_editor() {
-                    let form = document.getElementById('change_editor_form');
-                    form.action = "{% url 'invite_editor' %}"
-                    form.submit();
-                }
-
-                function ban_editor() {
-                    let form = document.getElementById('change_editor_form');
-                    form.action = "{% url 'ban_editor' %}"
-                    form.submit();
-                }
-            </script>
         </div>
     </div>
 </div>
+{% endblock %} {% block 'scripts' %}
+<script src="{% static 'js/change_editors.js' %}" defer></script>
 {% endblock %}
