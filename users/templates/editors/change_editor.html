@@ -46,14 +46,14 @@
                 </div>
             </form>
             <div class="d-flex flex-row mt-3">
-                <input type="button" class="btn btn-danger" onclick="delete_editor(`{% url 'delete_editor' %}`)" value="DELETE">
-                <input type="button" class="btn btn-warning ms-3" onclick="update_editor(`{% url 'update_editor' %}`)" value="ATUALIZAR">
-                <input type="button" class="btn btn-secondary ms-3" onclick="invite_editor(`{% url 'invite_editor' %}`)" value="INVITAR">
-                <input type="button" class="btn btn-dark ms-3" onclick="ban_editor(`{% url 'ban_editor' %}`)" value="BANIR">
+                <input type="button" class="btn btn-danger" onclick="button_delete('change_editor_form', `{% url 'delete_editor' %}`)" value="DELETE">
+                <input type="button" class="btn btn-warning ms-3" onclick="button_update('change_editor_form', `{% url 'update_editor' %}`)" value="ATUALIZAR">
+                <input type="button" class="btn btn-secondary ms-3" onclick="button_invite('change_editor_form', `{% url 'invite_editor' %}`)" value="INVITAR">
+                <input type="button" class="btn btn-dark ms-3" onclick="button_ban('change_editor_form', `{% url 'ban_editor' %}`)" value="BANIR">
             </div>
         </div>
     </div>
 </div>
 {% endblock %} {% block 'scripts' %}
-<script src="{% static 'js/change_editors.js' %}" defer></script>
+<script src="{% static 'js/buttos_by_template.js' %}" defer></script>
 {% endblock %}

@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import editors, users
+from .views import editors, users, home_admin_users
 
 urlpatterns = [
+    path('', home_admin_users.home_admin_users, name='home_admin_users'),
+    
     path('editors/', editors.home_editor, name='home_editor'),
     path('editors/add/', editors.add_editor, name='add_editor'),
     path('editors/insert/', editors.insert_editor, name='insert_editor'),
@@ -21,4 +23,12 @@ urlpatterns = [
     path('users/invite/', users.invite_user, name='invite_user'),
     path('users/update/', users.update_user, name='update_user'),
     path('users/ban/', users.ban_user, name='ban_user'),
+    
+    path('guests/list/', home_admin_users.list_guests, name='home_admin_guests'),
+    path('guests/show/', home_admin_users.show_guest, name='get_guests'),
+    path('banneds/list/', home_admin_users.list_banneds, name='home_admin_banneds'),
+    path('banneds/show/', home_admin_users.get_banned, name='get_banned'),
+    
+    path('delete_user/', home_admin_users.admin_delete_user, name='admin_delete_user'),
+    path('update_user/', home_admin_users.admin_update_user, name='admin_update_user'),
 ]

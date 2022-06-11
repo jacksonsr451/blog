@@ -46,14 +46,14 @@
                 </div>
             </form>
             <div class="d-flex flex-row mt-3">
-                <input type="button" class="btn btn-danger" onclick="delete_user(`{% url 'delete_user' %}`)" value="DELETE">
-                <input type="button" class="btn btn-warning ms-3" onclick="update_user(`{% url 'update_user' %}`)" value="ATUALIZAR">
-                <input type="button" class="btn btn-secondary ms-3" onclick="invite_user(`{% url 'invite_user' %}`)" value="INVITAR">
-                <input type="button" class="btn btn-dark ms-3" onclick="ban_user(`{% url 'ban_user' %}`)" value="BANIR">
+                <input type="button" class="btn btn-danger" onclick="button_delete('change_user_form', `{% url 'delete_user' %}`)" value="DELETE">
+                <input type="button" class="btn btn-warning ms-3" onclick="button_update('change_user_form', `{% url 'update_user' %}`)" value="ATUALIZAR">
+                <input type="button" class="btn btn-secondary ms-3" onclick="button_invite('change_user_form', `{% url 'invite_user' %}`)" value="INVITAR">
+                <input type="button" class="btn btn-dark ms-3" onclick="button_ban('change_user_form', `{% url 'ban_user' %}`)" value="BANIR">
             </div>
         </div>
     </div>
 </div>
 {% endblock %} {% block 'scripts' %}
-<script src="{% static 'js/change_users.js' %}" defer></script>
+<script src="{% static 'js/buttos_by_template.js' %}" defer></script>
 {% endblock %}

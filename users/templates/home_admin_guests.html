@@ -1,7 +1,7 @@
 {% extends 'admin/admin_template.html' %}
 
 <!-- Init block title -->
-{% block 'title' %}Banneds{% endblock %}
+{% block 'title' %}Guests{% endblock %}
 
 <!-- Init block Header -->
 {% block 'header' %}{% include 'admin/admin_header.html' %}{% endblock %}
@@ -26,9 +26,9 @@
                 </tr>
             </thead>
             <tbody>{% for user in users %}
-                <form id="banned_user_form_{{ user.id }}" action="{% url 'banned_user' %}" method="post">
+                <form id="guest_user_form_{{ user.id }}" action="{% url 'get_guests' %}" method="post">
                     {% csrf_token %}
-                    <tr align="center" onclick="document.getElementById('banned_user_form_{{ user.id }}').submit();" style="cursor: pointer;">
+                    <tr align="center" onclick="document.getElementById('guest_user_form_{{ user.id }}').submit();" style="cursor: pointer;">
                         <input type="hidden" name="id" value='{{ user.id }}'>
                         <td>{{ user.id }}</td>
                         <td>{{ user.first_name }}</td>

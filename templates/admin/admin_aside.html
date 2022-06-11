@@ -31,13 +31,10 @@
                     <a href="{% url 'home_user' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">Usuarios</span></a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Deletados</span></a>
+                    <a href="{% url 'home_admin_guests' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">Invitados</span></a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Invitados</span></a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Banidos</span></a>
+                    <a href="{% url 'home_admin_banneds' %}" class="nav-link px-0"> <span class="d-none d-sm-inline">Banidos</span></a>
                 </li>
             </ul>
         </li>
