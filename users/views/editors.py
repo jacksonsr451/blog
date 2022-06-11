@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from rolepermissions.decorators import has_role_decorator
-from .models import Users
+from ..models import Users
 
 @has_role_decorator('admin')
 def home_editor(request):
@@ -36,12 +36,12 @@ def delete_editor(request):
 
 @has_role_decorator('admin')
 def invite_editor(request):
-    # TODO: implement method by inviting user to the system
+    # TODO: implement method by inviting editor to the system
     return redirect('list_editor')
 
 @has_role_decorator('admin')
 def ban_editor(request):
-    # TODO: create a new user with the same email as the banned user
+    # TODO: create a new user with the same email as the banned editor
     return redirect('list_editor')
 
 @has_role_decorator('add_editor')
