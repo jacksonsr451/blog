@@ -4,17 +4,17 @@ from .models import Users
 
 @has_role_decorator('admin')
 def home_editor(request):
-    return render(request, 'home_editor.html')
+    return render(request, 'editors/home_editor.html')
 
 @has_role_decorator('admin')
 def list_editor(request):
     users = Users.objects.all()
-    return render(request, 'list_editor.html', {'users': users})
+    return render(request, 'editors/list_editor.html', {'users': users})
 
 @has_role_decorator('admin')
 def change_editor(request):
     user = Users.objects.get(pk=request.POST['id'])
-    return render(request, 'change_editor.html', {'user': user})
+    return render(request, 'editors/change_editor.html', {'user': user})
 
 @has_role_decorator('admin')
 def update_editor(request):
@@ -46,7 +46,7 @@ def ban_editor(request):
 
 @has_role_decorator('add_editor')
 def add_editor(request):
-    return render(request, 'add_editor.html')
+    return render(request, 'editors/add_editor.html')
 
 @has_role_decorator('add_editor')
 def insert_editor(request):
