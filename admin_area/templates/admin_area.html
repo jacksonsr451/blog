@@ -1,0 +1,22 @@
+{% extends 'admin/admin_template.html' %}
+
+<!-- Init block title -->
+{% block 'title' %}Admin Painel{% endblock %}
+
+<!-- Init block Header -->
+{% block 'header' %}{% include 'admin/admin_header.html' %}{% endblock %}
+
+<!-- Init block aside -->
+{% block 'aside' %} {% include 'admin/admin_aside.html' %} {% endblock %}
+
+<!-- Init block footer  -->
+{% block 'footer' %}{% include 'admin/admin_footer.html' %}{% endblock %}
+
+<!-- Init block content -->
+{% block 'content' %}
+<div class="container">
+    <div class="row">
+        <h2 class="mt-4 mb-4" align="center">Admin Painel</h2>
+    </div>
+</div>
+{% endblock %}

@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from rolepermissions.decorators import has_role_decorator
 
-# Create your views here.
+
+@has_role_decorator('admin')
+def admin_area(request):
+    return render(request, 'admin_area.html')
