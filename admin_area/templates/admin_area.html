@@ -17,6 +17,12 @@
 <div class="container">
     <div class="row">
         <h2 class="mt-4 mb-4" align="center">Admin Painel</h2>
+        <div class="card" style="width: 18rem; cursor: pointer;" onclick="location = `{% url 'home_admin_users' %}`">
+            <i class="fs-1 bi-people-fill text-center"></i>
+            <div class="card-body">
+                <p class="card-text text-center">Users Manager</p>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
