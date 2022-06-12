@@ -16,6 +16,7 @@
 {% block 'content' %}
 <div class="container">
     <div class="row">
+        <i class="bi bi-arrow-left mt-2" style="cursor: pointer;" onclick="location = `{% url 'home_admin_users' %}`"></i>
         {% include 'editors/header_content_editor.html' %}
         <!-- TODO: include introduction by editos in template -->
     </div>

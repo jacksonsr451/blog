@@ -26,6 +26,7 @@ urlpatterns = [
     
     path('guests/list/', home_admin_users.list_guests, name='home_admin_guests'),
     path('guests/show/', home_admin_users.show_guest, name='get_guests'),
+    
     path('banneds/list/', home_admin_users.list_banneds, name='home_admin_banneds'),
     path('banneds/show/', home_admin_users.get_banned, name='get_banned'),
     

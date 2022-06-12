@@ -17,6 +17,26 @@
 <div class="container">
     <div class="row">
         <h2 align="center">Administação de Usuarios</h2>
+        <div class="card m-4" style="width: 14rem; cursor: pointer;" onclick="location = `{% url 'home_editor' %}`">
+            <div class="card-body">
+                <p class="card-text text-center">Editors</p>
+            </div>
+        </div>
+        <div class="card m-4" style="width: 14rem; cursor: pointer;" onclick="location = `{% url 'home_user' %}`">
+            <div class="card-body">
+                <p class="card-text text-center">Users</p>
+            </div>
+        </div>
+        <div class="card m-4" style="width: 14rem; cursor: pointer;" onclick="location = `{% url 'home_admin_banneds' %}`">
+            <div class="card-body">
+                <p class="card-text text-center">Banneds</p>
+            </div>
+        </div>
+        <div class="card m-4" style="width: 14rem; cursor: pointer;" onclick="location = `{% url 'home_admin_guests' %}`">
+            <div class="card-body">
+                <p class="card-text text-center">Guests</p>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
